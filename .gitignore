@@ -1,3 +1,17 @@
+# --- Project-specific additions ---
+
+# Raw data — cannot be redistributed (WRDS/CRSP license restriction)
+data/raw/*
+!data/raw/.gitkeep
+
+# Credentials — never commit these
+wrds_credentials*
+
+# OS/editor clutter
+.DS_Store
+
+# --- Python gitignore defaults ---
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
