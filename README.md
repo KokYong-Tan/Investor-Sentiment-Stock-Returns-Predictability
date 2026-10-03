@@ -50,19 +50,44 @@ Once obtained, place both files in `data/raw/` before running the notebook (see 
 
 ```
 project-repository/
-|-- README.md                  # This file
-|-- AI_USAGE.md                 # AI use disclosure
+|-- README.md                    # This file
+|-- AI_USAGE.md                  # AI use disclosure
 |-- CONTRIBUTIONS.md             # Contribution notes (individual project)
 |-- requirements.txt             # Python dependencies
+|-- .gitignore                   # Excludes data/raw/*, caches, credentials, etc.
 |-- data/
-|   |-- raw/                    # Original CRSP/VIX CSVs (not tracked — see Data Access above)
-|   |-- interim/                # Working data (resampled month-end VIX, pre-merge)
-|   |-- processed/              # merged_monthly.csv — analysis-ready dataset
+|   |-- raw/                     # Original CRSP/VIX CSVs — not tracked (see Data Access above);
+|   |                            #   .gitkeep placeholder keeps the empty folder visible in the repo
+|   |-- interim/
+|   |   |-- vix_month_end.csv    # VIX resampled to month-end, pre-merge
+|   |-- processed/
+|   |   |-- merged_monthly.csv   # Analysis-ready dataset (299 obs after lagging)
 |-- notebooks/
-|   |-- main_analysis.ipynb      # Full analysis notebook (Steps 1–7 below)
+|   |-- main_analysis.ipynb      # Full analysis notebook (Steps 1–7, calls into src/)
+|-- src/
+|   |-- __init__.py              # Marks src/ as an importable package
+|   |-- data_prep.py             # Step 1 — load, clean, merge, lag, regime indicators
+|   |-- descriptive.py           # Step 2 — plots, summary stats, VIF check
+|   |-- models.py                # Steps 3–4 — baseline and extended regressions (OLS + HAC)
+|   |-- bootstrap.py             # Step 5 — moving block bootstrap
+|   |-- regime.py                # Step 6 — high/low-VIX regime comparison (Welch's t-test)
+|   |-- nonparametric.py         # Step 7 — permutation test
 |-- outputs/
-|   |-- figures/                 # Time series, Q-Q, scatter, bootstrap, boxplot, permutation plots
-|   |-- tables/                  # Regression, bootstrap CI, regime, and permutation results tables
+|   |-- figures/
+|   |   |-- timeseries_returns_vix.png
+|   |   |-- returns_histogram_qqplot.png
+|   |   |-- vix_vs_next_return_scatter.png
+|   |   |-- bootstrap_distribution.png
+|   |   |-- regime_comparison_boxplot.png
+|   |   |-- permutation_distribution.png
+|   |-- tables/
+|   |   |-- summary_statistics.csv
+|   |   |-- vif_table.csv
+|   |   |-- baseline_regression.csv
+|   |   |-- baseline_vs_extended.csv
+|   |   |-- bootstrap_ci_comparison.csv
+|   |   |-- regime_comparison.csv
+|   |   |-- permutation_test.csv
 ```
 
 ## 5. Setup and Execution Instructions
