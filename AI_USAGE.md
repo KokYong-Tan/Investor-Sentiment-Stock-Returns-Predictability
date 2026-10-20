@@ -21,7 +21,7 @@
 
 ### Review and verification
 
-- All modelling choices were reviewed against course lecture notes and the reference paper (Kuester, Mittnik & Paolella 2006) before inclusion.
+- All modelling choices were reviewed against course lecture notes and the reference paper (Schmeling (2009, Journal of Empirical Finance)) before inclusion.
 - No AI output was included without independent understanding and verification by the group member.
 
 ---
