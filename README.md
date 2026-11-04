@@ -159,11 +159,9 @@ See `outputs/tables/` for full regression tables and `outputs/figures/` for all 
 
 - **Predictive, not causal:** VIX (fear/sentiment) is not randomly assigned, so any relationship found should be read as predictive/associational, not causal.
 - **COVID as a structural break:** the largest fear spike in the sample (March–April 2020) coincides with an unprecedented policy response, so any relationship found may be partly attributable to policy rather than pure sentiment dynamics.
-- **Price return vs. total return:** the dependent variable (`MthPrcRet`) excludes dividends; dividend yield is included as a control (Section 6) to partially address this, rather than switching the outcome variable itself.
 - **VIX as an imperfect sentiment proxy:** VIX is mechanically a volatility measure, not a pure behavioral sentiment measure, so any significant β may reflect a volatility risk premium rather than purely behavioral overreaction.
-- **Potential multicollinearity:** dividend yield can rise mechanically alongside VIX during sharp price declines; checked via correlation/VIF (found to be minimal — VIF ≈ 1.006).
 - **Remaining omitted variables:** lagged market returns, realized volatility, and interest-rate spreads (all suggested during proposal feedback) are not yet included as controls; adding them is a stretch goal for future iterations.
-- **Permutation test caveat:** the permutation test assumes exchangeability of the response under H₀; it does not separately account for potential serial dependence within the response series itself (only the link to predictors is broken by shuffling).
+
 
 ## 9. Acknowledgements
 
