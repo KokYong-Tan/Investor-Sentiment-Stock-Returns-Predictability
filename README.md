@@ -88,6 +88,8 @@ project-repository/
 |   |   |-- bootstrap_ci_comparison.csv
 |   |   |-- regime_comparison.csv
 |   |   |-- permutation_test.csv
+|   |-- presentation/
+|   |   |-- DS607_GP_01426300_slides.pdf
 ```
 
 ## 5. Setup and Execution Instructions
